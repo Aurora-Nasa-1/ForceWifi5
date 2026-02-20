@@ -46,6 +46,14 @@
             app:summary="@string/summary_aggressive_change"
             />
 
+        <SwitchPreferenceCompat
+            app:key="@string/prefs_root_mode"
+            app:defaultValue="false"
+            app:widgetLayout="@layout/preference_material_switch"
+            app:title="@string/title_root_mode"
+            app:summary="@string/summary_root_mode"
+            />
+
         <Preference
             app:key="@string/prefs_widget_settings"
             app:title="@string/title_widget"

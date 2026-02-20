@@ -159,10 +159,6 @@
   <string name="summary_widget">Agregue un widget a su pantalla de inicio. Esto le brinda la oportunidad de verificar rápidamente su frecuencia actual.</string>
   <string name="title_widget">Widget</string>
   <string name="title_general_settings">Configuración general</string>
-  <string name="title_admob">Habilitar publicidad</string>
-  <string name="summary_admob">Habilite o deshabilite los anuncios en la aplicación (es necesario reiniciar).</string>
-  <string name="action_privacy">Opciones de privacidad</string>
-  <string name="error_loading_privacy">Error loading privacy forms for AdMob</string>
     <string name="action_contact">Contacto</string>
   <string name="action_reload">Reload</string>
   <string name="text_wifimanualmode">Modo manual: elija sus puntos de acceso Wifi preferidos y haga clic en \‘Guardar\’.</string>

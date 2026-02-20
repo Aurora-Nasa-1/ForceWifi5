@@ -101,10 +101,6 @@
     <string name="summary_widget">Fügen Sie Ihrem Startbildschirm ein Widget hinzu. Dies gibt Ihnen die Möglichkeit, schnell Ihre aktuelle Frequenz zu überprüfen.v</string>
     <string name="title_widget">Widget</string>
     <string name="title_general_settings">Allgemeine Einstellungen</string>
-    <string name="title_admob">Werbung aktivieren</string>
-    <string name="summary_admob">Aktivieren oder deaktivieren Sie Werbeanzeigen in der App (Neustart erforderlich).</string>
-    <string name="action_privacy">Privatsphäre-Einstellungen</string>
-    <string name="error_loading_privacy">Error loading privacy forms for AdMob</string>
     <string name="action_contact">Kontakt</string>
     <string name="action_reload">Reload</string>
     <string name="text_wifimanualmode">Manueller Modus: Bitte wählen Sie Ihre bevorzugten WLAN-Zugangspunkte aus und klicken Sie auf „Speichern“</string>
