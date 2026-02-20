@@ -347,21 +347,32 @@ public class WifiChangeService extends Service {
 								break;
 							case WifiManager.STATUS_NETWORK_SUGGESTIONS_SUCCESS:
 								showError(R.string.info_switch_wifi_5ghz_android10);
-								// Starting with API 33, Android allows to use setWifiEnabled in certain cases (device owner, etc.), so we give a try
-								// disconnect geht nicht mehr: https://issuetracker.google.com/issues/128554616
-								if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ) {
-									boolean changed = false;
-									try {
-										changed = wifiManager.setWifiEnabled(true);
-									} catch (Exception e) {
-										Log.w(AppInfo.APP_NAME, "Wifi disabling/enabled failed", e);
-									} finally {
-										// try another way, for Android Q+ the flag changed is always "false" as per spec
-										if(!changed && !isAggressive()) {
-											try {
-												startActivity(getWifiIntent(getApplicationContext()));
-											} catch(Exception e2) {
-												Crashlytics.recordException(e2);
+								if (isRootMode()) {
+									new Thread(() -> {
+										RootUtils.runCommand("svc wifi disable");
+										try {
+											Thread.sleep(1000);
+										} catch (Exception ignored) {
+										}
+										RootUtils.runCommand("svc wifi enable");
+									}).start();
+								} else {
+									// Starting with API 33, Android allows to use setWifiEnabled in certain cases (device owner, etc.), so we give a try
+									// disconnect geht nicht mehr: https://issuetracker.google.com/issues/128554616
+									if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+										boolean changed = false;
+										try {
+											changed = wifiManager.setWifiEnabled(true);
+										} catch (Exception e) {
+											Log.w(AppInfo.APP_NAME, "Wifi disabling/enabled failed", e);
+										} finally {
+											// try another way, for Android Q+ the flag changed is always "false" as per spec
+											if (!changed && !isAggressive()) {
+												try {
+													startActivity(getWifiIntent(getApplicationContext()));
+												} catch (Exception e2) {
+													Crashlytics.recordException(e2);
+												}
 											}
 										}
 									}
@@ -623,6 +634,10 @@ public class WifiChangeService extends Service {
 
 	protected boolean isActivated() {
 		return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.prefs_activation), true);
+	}
+
+	private boolean isRootMode() {
+		return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.prefs_root_mode), false);
 	}
 
 	private boolean isAggressive() {

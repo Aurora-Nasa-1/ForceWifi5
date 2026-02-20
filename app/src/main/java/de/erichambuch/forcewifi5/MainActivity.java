@@ -801,7 +801,13 @@ public class MainActivity extends AppCompatActivity {
 							dialog.dismiss();
 							WifiChangeService.provideSuggestions(MainActivity.this, suggestionList);
 							showMessage(R.string.text_suggestions_saved);
-							if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && isAggressive() && !suggestionList.isEmpty()) {
+							if (isRootMode()) {
+								new Thread(() -> {
+									RootUtils.runCommand("svc wifi disable");
+									try { Thread.sleep(1000); } catch (Exception ignored) {}
+									RootUtils.runCommand("svc wifi enable");
+								}).start();
+							} else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && isAggressive() && !suggestionList.isEmpty()) {
 								WifiChangeService.aggressiveNetworkChange(MainActivity.this, suggestionList.get(0));
 							} else {
 								// Here we try to force a re-connect of the Wifi via Internet connectivity
@@ -1137,6 +1143,10 @@ public class MainActivity extends AppCompatActivity {
 
 	private boolean isAggressive() {
 		return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.prefs_aggressive_change), true);
+	}
+
+	private boolean isRootMode() {
+		return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.prefs_root_mode), false);
 	}
 
 	static void createNotificationChannel(Context context) {

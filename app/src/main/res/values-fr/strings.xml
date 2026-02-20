@@ -162,10 +162,6 @@
   <string name="summary_widget">Ajoutez un widget à votre écran d’accueil. Cela vous donne la possibilité de vérifier rapidement votre fréquence actuelle.</string>
   <string name="title_widget">Widget</string>
   <string name="title_general_settings">Réglages généraux</string>
-  <string name="title_admob">Activer la publicité</string>
-  <string name="summary_admob">Activez ou désactivez les publicités dans l’application (nécessite un redémarrage).</string>
-  <string name="action_privacy">Options de confidentialité</string>
-  <string name="error_loading_privacy">Error loading privacy forms for AdMob</string>
   <string name="action_contact">Contact</string>
     <string name="action_reload">Reload</string>
   <string name="text_wifimanualmode">Manueller Modus: Bitte wählen Sie Ihre bevorzugten WLAN-Zugangspunkte aus und klicken Sie auf ‘Speichern’</string>

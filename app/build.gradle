@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'com.google.firebase.crashlytics'
+if (file('google-services.json').exists()) {
+    apply plugin: 'com.google.gms.google-services'
+    apply plugin: 'com.google.firebase.crashlytics'
+}
 apply plugin: 'com.google.android.gms.oss-licenses-plugin'
 
 android {
@@ -8,7 +10,10 @@ android {
 
     // Read the API keys from the local.properties
     Properties localProperties = new Properties()
-    localProperties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def localPropertiesFile = project.rootProject.file('local.properties')
+    if (localPropertiesFile.exists()) {
+        localProperties.load(localPropertiesFile.newDataInputStream())
+    }
 
     defaultConfig {
         applicationId "de.erichambuch.forcewifi5"
@@ -20,7 +25,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // import Impressum from local.properties
-        buildConfigField "String", "IMPRESSUM", localProperties['IMPRESSUM']
+        buildConfigField "String", "IMPRESSUM", localProperties['IMPRESSUM'] ?: '""'
     }
 
     buildTypes {

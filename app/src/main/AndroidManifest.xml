@@ -99,10 +99,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="de.erichambuch.forcewifi5.VIEW_PRIVACY_OPTIONS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
                 <action android:name="de.erichambuch.forcewifi5.VIEW_FAQ" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

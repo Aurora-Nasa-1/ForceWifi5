@@ -94,7 +94,7 @@ public class SettingsActivity extends AppCompatActivity {
 				emailIntent.setData(Uri.parse(getString(R.string.app_dataprotection_url)));
 				if (emailIntent.resolveActivity(getPackageManager()) != null) {
 					Bundle bundle = new Bundle();
-					startActivity(Intent.createChooser(emailIntent, getString(R.string.action_privacy)), bundle);
+					startActivity(Intent.createChooser(emailIntent, getString(R.string.title_general_settings)), bundle);
 				} else
 					Toast.makeText(this, R.string.error_not_supported, Toast.LENGTH_LONG).show();
 				finish();

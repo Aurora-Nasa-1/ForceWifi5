@@ -101,10 +101,6 @@
     <string name="summary_widget">Dodaj widżet do ekranu głównego. Daje to możliwość szybkiego sprawdzenia aktualnej częstotliwości.</string>
     <string name="title_widget">Widget</string>
     <string name="title_general_settings">Ustawienia główne</string>
-    <string name="title_admob">Włącz reklamy</string>
-    <string name="summary_admob">Włącz lub wyłącz reklamy w aplikacji (wymaga ponownego uruchomienia).</string>
-    <string name="action_privacy">Opcje prywatności</string>
-    <string name="error_loading_privacy">Error loading privacy forms for AdMob</string>
     <string name="action_contact">Kontakt</string>
     <string name="action_reload">Reload</string>
     <string name="text_wifimanualmode">Tryb ręczny: wybierz preferowane punkty dostępu Wi-Fi i kliknij „Zapisz”</string>

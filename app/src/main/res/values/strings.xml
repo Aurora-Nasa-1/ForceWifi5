@@ -123,10 +123,9 @@
     <string name="summary_widget">Add a widget to your home screen. This gives you a chance to quickly check your current frequency.</string>
     <string name="title_widget">Frequency widget</string>
     <string name="title_general_settings">General Settings</string>
-    <string name="title_admob">Activate ads with Google AdMob</string>
-    <string name="summary_admob">Activate or de-activate Google Ads (Restart required)</string>
-    <string name="action_privacy">Privacy Options</string>
-    <string name="error_loading_privacy">Error loading privacy forms for AdMob</string>
+    <string name="title_root_mode">Root Mode</string>
+    <string name="summary_root_mode">Use root access to forcefully switch Wifi bands (Requires rooted device)</string>
+    <string name="prefs_root_mode" translatable="false">prefs_root_mode</string>
     <string name="app_faq_url" translatable="false">https://sites.google.com/site/erichambuch/forcewifi5</string>
     <string name="app_dataprotection_url" translatable="false">https://sites.google.com/site/erichambuch/dataprotection</string>
     <string name="action_contact">Contact</string>
